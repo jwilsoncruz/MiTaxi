@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mi Taxi | Mototaxi · Taxi · Motocar</title>
+
+<style>
+:root{
+  --azul:#0B4DB8;
+  --amarillo:#F5C400;
+  --negro:#0A0A0A;
+  --blanco:#ffffff;
+}
+
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,Helvetica,sans-serif}
+
+body{
+  background:var(--negro);
+  color:var(--blanco);
+  line-height:1.6;
+}
+
+/* HERO */
+.hero{
+  background:
+    linear-gradient(rgba(11,77,184,.88),rgba(0,0,0,.9)),
+    url("hero-mototaxi.jpg") center/cover no-repeat;
+  padding:90px 20px;
+  text-align:center;
+}
+
+.hero img{
+  width:140px;
+  margin-bottom:20px;
+}
+
+.hero h1{
+  font-size:40px;
+}
+
+.hero p{
+  max-width:720px;
+  margin:15px auto 30px;
+  font-size:18px;
+}
+
+/* BOTONES */
+.btn{
+  display:inline-block;
+  padding:15px 30px;
+  border-radius:30px;
+  text-decoration:none;
+  font-weight:bold;
+  margin:8px;
+  transition:.3s;
+}
+
+.btn-yellow{
+  background:var(--amarillo);
+  color:#000;
+}
+
+.btn-blue{
+  background:transparent;
+  border:2px solid var(--amarillo);
+  color:var(--amarillo);
+}
+
+.btn:hover{transform:scale(1.05)}
+
+/* CONTADOR */
+#contador{
+  display:flex;
+  justify-content:center;
+  gap:14px;
+  margin-bottom:35px;
+  flex-wrap:wrap;
+}
+
+.time{
+  background:#0f1f44;
+  border:2px solid var(--amarillo);
+  border-radius:12px;
+  padding:12px 18px;
+  min-width:90px;
+}
+
+.time div{
+  font-size:34px;
+  color:var(--amarillo);
+  font-weight:bold;
+}
+
+.time span{
+  font-size:12px;
+  text-transform:uppercase;
+}
+
+/* SECCIONES */
+section{padding:80px 20px}
+
+.container{
+  max-width:1100px;
+  margin:auto;
+}
+
+h2{
+  text-align:center;
+  font-size:34px;
+  margin-bottom:15px;
+}
+
+.sub{
+  text-align:center;
+  max-width:750px;
+  margin:0 auto 45px;
+  font-size:17px;
+}
+
+/* CARDS */
+.cards{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  gap:25px;
+}
+
+.card{
+  background:#111;
+  border-radius:16px;
+  padding:28px;
+  text-align:center;
+  border:1px solid #222;
+}
+
+.card h3{
+  color:var(--amarillo);
+  margin-bottom:10px;
+}
+
+/* CONDUCTOR */
+.conductor{
+  background:
+    linear-gradient(rgba(11,77,184,.95),rgba(11,77,184,.95)),
+    url("conductor-real.jpg") center/cover no-repeat;
+}
+
+/* FOOTER */
+footer{
+  background:#000;
+  padding:30px;
+  text-align:center;
+  font-size:14px;
+  color:#aaa;
+}
+
+@media(max-width:600px){
+  h1{font-size:30px}
+  h2{font-size:26px}
+}
+</style>
+</head>
+
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <img src="logo.jpg" alt="Mi Taxi">
+  <h1>Mototaxi · Taxi · Motocar</h1>
+  <p>
+    La nueva App de transporte en Trinidad.  
+    Pide tu viaje o gana dinero con tu vehículo.
+  </p>
+
+  <div id="contador">
+    <div class="time"><div id="d">00</div><span>Días</span></div>
+    <div class="time"><div id="h">00</div><span>Horas</span></div>
+    <div class="time"><div id="m">00</div><span>Min</span></div>
+    <div class="time"><div id="s">00</div><span>Seg</span></div>
+  </div>
+
+  <a class="btn btn-yellow"
+     href="https://play.google.com/store/apps/details?id=com.blueapp.usuario"
+     target="_blank">
+     Soy Pasajero – Descargar App
+  </a>
+
+  <a class="btn btn-blue"
+     href="https://play.google.com/store/apps/details?id=com.blueapp.conductor"
+     target="_blank">
+     Soy Conductor – Ganar Dinero
+  </a>
+</div>
+
+<!-- PASAJEROS -->
+<section>
+  <div class="container">
+    <h2>Viaja fácil con Mi Taxi</h2>
+    <p class="sub">
+      Solicita mototaxi, taxi o motocar desde tu celular.
+      Rápido, seguro y sin complicaciones.
+    </p>
+
+    <div class="cards">
+      <div class="card">
+        <h3>📱 Rápido</h3>
+        <p>Pide tu viaje en segundos</p>
+      </div>
+      <div class="card">
+        <h3>📍 Cercano</h3>
+        <p>Conductores disponibles cerca de ti</p>
+      </div>
+      <div class="card">
+        <h3>🔐 Seguro</h3>
+        <p>Conductores registrados y verificados</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONDUCTORES -->
+<section class="conductor">
+  <div class="container">
+    <h2>¿Tienes moto, taxi o motocar?</h2>
+    <p class="sub">
+      Genera ingresos diarios usando tu propio vehículo.
+      Tú eliges cuándo trabajar.
+    </p>
+
+    <div class="cards">
+      <div class="card">
+        <h3>💰 Más ingresos</h3>
+        <p>Recibe viajes todos los días</p>
+      </div>
+      <div class="card">
+        <h3>🕒 Tú decides</h3>
+        <p>Sin horarios ni jefes</p>
+      </div>
+      <div class="card">
+        <h3>📍 Menos gasto</h3>
+        <p>Viajes cerca de tu zona</p>
+      </div>
+    </div>
+
+    <div style="text-align:center;margin-top:40px">
+      <a class="btn btn-yellow"
+         href="https://play.google.com/store/apps/details?id=com.blueapp.conductor"
+         target="_blank">
+         Registrarme como Conductor
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  © 2026 Mi Taxi Bolivia · Nosotros te movemos
+</footer>
+
+<script>
+const lanzamiento = new Date("February 2, 2026 19:00:00").getTime();
+setInterval(()=>{
+  const now = new Date().getTime();
+  const t = lanzamiento - now;
+  if(t <= 0) return;
+  d.innerHTML=Math.floor(t/(1000*60*60*24));
+  h.innerHTML=Math.floor((t%(1000*60*60*24))/(1000*60*60));
+  m.innerHTML=Math.floor((t%(1000*60*60))/(1000*60));
+  s.innerHTML=Math.floor((t%(1000*60))/1000);
+},1000);
+</script>
+
+</body>
+</html>
