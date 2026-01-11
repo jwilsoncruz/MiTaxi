@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Tutoriales Mi Taxi</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="img/favicon.png">
+
+<style>
+:root{
+  --azul:#003cff;
+  --amarillo:#ffd200;
+  --oscuro:#0a0a1a;
+  --blanco:#ffffff;
+}
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,Helvetica,sans-serif;}
+
+body{
+  background:linear-gradient(to bottom, #050522, #000);
+  color:white;
+}
+
+/* HEADER */
+header{
+  position:fixed;
+  top:0;
+  width:100%;
+  background:rgba(0,0,0,0.7);
+  backdrop-filter: blur(8px);
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:10px 15px;
+  z-index:999;
+}
+
+header img{
+  height:40px;
+}
+
+.menu-btn{
+  font-size:28px;
+  cursor:pointer;
+  color:var(--amarillo);
+}
+
+/* MENU HAMBURGUESA */
+#menu{
+  position:fixed;
+  top:0;
+  left:-100%;
+  width:75%;
+  height:100%;
+  background:linear-gradient(to bottom, #020233, #000);
+  padding:20px;
+  transition:0.4s;
+  z-index:1000;
+}
+
+#menu.active{
+  left:0;
+}
+
+#menu h2{
+  color:var(--amarillo);
+  margin-bottom:15px;
+}
+
+#menu a{
+  display:block;
+  padding:12px;
+  margin:6px 0;
+  background:#111;
+  color:white;
+  border-radius:6px;
+  text-decoration:none;
+  font-size:18px;
+}
+
+/* HERO */
+.hero{
+  margin-top:70px;
+  padding:20px;
+  text-align:center;
+  background:url("img/trinidad.jpg") center/cover no-repeat;
+  position:relative;
+}
+.hero::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:rgba(0,0,40,0.75);
+}
+.hero *{position:relative;}
+
+.hero h1{
+  color:var(--amarillo);
+  font-size:26px;
+}
+.hero p{
+  margin-top:8px;
+  font-size:16px;
+}
+
+/* SECCIONES */
+.section{
+  padding:20px;
+}
+.section h2{
+  color:var(--amarillo);
+  margin-bottom:10px;
+}
+
+/* TARJETAS */
+.grid{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:15px;
+}
+
+.card{
+  background:linear-gradient(135deg,#0a0a3a,#020214);
+  border-radius:10px;
+  padding:15px;
+  box-shadow:0 0 10px rgba(255,210,0,0.2);
+  animation:fadeUp 0.8s ease;
+}
+
+.card h3{
+  margin-bottom:10px;
+  font-size:18px;
+}
+.card button{
+  background:var(--amarillo);
+  border:none;
+  padding:10px 15px;
+  border-radius:6px;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+@keyframes fadeUp{
+  from{opacity:0;transform:translateY(20px);}
+  to{opacity:1;transform:translateY(0);}
+}
+
+/* WHATSAPP FLOTANTE */
+.whatsapp{
+  position:fixed;
+  bottom:20px;
+  right:15px;
+  background:#25d366;
+  color:white;
+  padding:12px 14px;
+  border-radius:50%;
+  font-size:22px;
+  box-shadow:0 0 15px rgba(0,0,0,0.4);
+  animation:pulse 1.5s infinite;
+  z-index:999;
+}
+@keyframes pulse{
+  0%{transform:scale(1);}
+  50%{transform:scale(1.1);}
+  100%{transform:scale(1);}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <img src="img/logo.png">
+  <div class="menu-btn" onclick="toggleMenu()">☰</div>
+</header>
+
+<div id="menu">
+  <h2>📚 Tutoriales Mi Taxi</h2>
+  <a href="#pasajeros">🚕 Pasajeros</a>
+  <a href="#conductores">🛵 Conductores</a>
+  <a href="#pagos">💳 Pagos y Recargas</a>
+  <a href="#uso">⚙️ Uso de la App</a>
+  <a href="#soporte">🆘 Soporte</a>
+  <a href="index.html">🏠 Volver a Inicio</a>
+</div>
+
+<section class="hero">
+  <h1>Centro de Videotutoriales Mi Taxi</h1>
+  <p>Ciudad de la Santísima Trinidad – Beni, Bolivia</p>
+</section>
+
+<section class="section" id="pasajeros">
+  <h2>🚕 Pasajeros</h2>
+  <div class="grid">
+    <div class="card">
+      <h3>Cómo pedir un taxi</h3>
+      <button onclick="abrirVideo('https://youtube.com')">Ver video</button>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="conductores">
+  <h2>🛵 Conductores</h2>
+  <div class="grid">
+    <div class="card">
+      <h3>Cómo registrarte en Mi Taxi</h3>
+      <button onclick="abrirVideo('https://tiktok.com')">Ver video</button>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="pagos">
+  <h2>💳 Pagos y Recargas</h2>
+  <div class="grid">
+    <div class="card">
+      <h3>Cómo recargar saldo</h3>
+      <button onclick="abrirVideo('#')">Ver video</button>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="uso">
+  <h2>⚙️ Uso de la App</h2>
+  <div class="grid">
+    <div class="card">
+      <h3>Funciones principales</h3>
+      <button onclick="abrirVideo('#')">Ver video</button>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="soporte">
+  <h2>🆘 Soporte</h2>
+  <div class="grid">
+    <div class="card">
+      <h3>Problemas comunes</h3>
+      <button onclick="abrirVideo('#')">Ver video</button>
+    </div>
+  </div>
+</section>
+
+<a class="whatsapp" 
+href="https://wa.me/59168972863?text=Hola,%20necesito%20ayuda%20con%20la%20app%20Mi%20Taxi" 
+target="_blank">📲</a>
+
+<script>
+function toggleMenu(){
+  document.getElementById("menu").classList.toggle("active");
+}
+function abrirVideo(url){
+  window.open(url,"_blank");
+}
+</script>
+
+</body>
+</html>
