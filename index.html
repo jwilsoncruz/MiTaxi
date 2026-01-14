@@ -1,449 +1,232 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <!-- ================= META BÁSICO ================= -->
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<title>Mi Taxi App | Transporte rápido en Trinidad</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Mi Taxi App | Pide tu taxi rápido y seguro</title>
-  <meta name="description" content="Solicita taxis, mototaxis o motocar con la app Mi Taxi. Rápido, seguro y con conductores verificados.">
+<!-- SEO -->
+<meta name="description" content="Mi Taxi App para Trinidad, Beni. Pide taxi, mototaxi o motocar. Gana dinero como conductor.">
 
-  <!-- ================= OPEN GRAPH (FB + WHATSAPP) ================= -->
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://jwilsoncruz.github.io/MiTaxi/">
-  <meta property="og:title" content="Mi Taxi App | Pide tu taxi rápido y seguro">
-  <meta property="og:description" content="Descarga Mi Taxi y solicita tu viaje en segundos. Seguro, rápido y con conductores cerca de ti.">
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://jwilsoncruz.github.io/MiTaxi/">
+<meta property="og:title" content="Mi Taxi App | Transporte rápido y seguro">
+<meta property="og:description" content="Descarga Mi Taxi y viaja seguro en Trinidad, Beni.">
+<meta property="og:image" content="https://jwilsoncruz.github.io/MiTaxi/img/Preview.jpg">
+<meta property="og:image:type" content="image/jpeg">
 
-  <meta property="og:image" content="https://jwilsoncruz.github.io/MiTaxi/Preview.jpg">
-  <meta property="og:image:secure_url" content="https://jwilsoncruz.github.io/MiTaxi/Preview.jpg">
-  <meta property="og:image:type" content="image/jpeg">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
+<!-- Favicon -->
+<link rel="icon" type="image/png" href="img/favicon.png">
 
-  <!-- ================= FAVICON ================= -->
-  <link rel="icon" href="img/icono.png" type="image/png">
+<link href="https://fonts.googleapis.com/css2?family=Asap:wght@400;600;700&display=swap" rel="stylesheet">
 
-  <!-- ================= FUENTES ================= -->
-  <link href="https://fonts.googleapis.com/css2?family=Asap:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --azul:#0B4DB8;
+  --amarillo:#F5C400;
+  --negro:#050505;
+  --blanco:#fff;
+}
 
-  <!-- ================= ESTILOS ================= -->
-  <style>
-    :root{
-      --azul:#0B4DB8;
-      --amarillo:#F5C400;
-      --negro:#0A0A0A;
-      --blanco:#ffffff;
-    }
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Asap',sans-serif;}
 
-    *{
-      margin:0;
-      padding:0;
-      box-sizing:border-box;
-      font-family:'Asap', Arial, sans-serif;
-    }
-
-    body{
-      background:var(--negro);
-      color:var(--blanco);
-      line-height:1.6;
-    }
-
-    /* HERO */
-    .hero{
-      background:
-        linear-gradient(rgba(11,77,184,.9),rgba(0,0,0,.9)),
-        url("ClienteConductor.png") center/cover no-repeat;
-      padding:90px 20px;
-      text-align:center;
-    }
-
-    .hero img{
-      width:140px;
-      margin-bottom:20px;
-    }
-
-    .hero h1{
-      font-size:40px;
-      margin-bottom:10px;
-    }
-
-    .hero p{
-      max-width:720px;
-      margin:0 auto 30px;
-      font-size:18px;
-    }
-
-    /* BOTONES */
-    .btn{
-      display:inline-block;
-      padding:15px 32px;
-      border-radius:30px;
-      text-decoration:none;
-      font-weight:700;
-      margin:8px;
-      transition:.3s;
-    }
-
-    .btn-yellow{
-      background:var(--amarillo);
-      color:#000;
-    }
-
-    .btn-blue{
-      border:2px solid var(--amarillo);
-      color:var(--amarillo);
-      background:transparent;
-    }
-
-    .btn:hover{
-      transform:scale(1.05);
-    }
-
-    /* CONTADOR */
-    #contador{
-      display:flex;
-      justify-content:center;
-      gap:14px;
-      margin-bottom:35px;
-      flex-wrap:wrap;
-    }
-
-    .time{
-      background:#0f1f44;
-      border:2px solid var(--amarillo);
-      border-radius:12px;
-      padding:12px 18px;
-      min-width:90px;
-    }
-
-    .time div{
-      font-size:34px;
-      color:var(--amarillo);
-      font-weight:bold;
-    }
-
-    .time span{
-      font-size:12px;
-      text-transform:uppercase;
-    }
-
-    /* SECCIONES */
-    section{
-      padding:80px 20px;
-    }
-
-    .container{
-      max-width:1100px;
-      margin:auto;
-    }
-
-    h2{
-      text-align:center;
-      font-size:34px;
-      margin-bottom:15px;
-    }
-
-    .sub{
-      text-align:center;
-      max-width:750px;
-      margin:0 auto 45px;
-      font-size:17px;
-    }
-
-    /* CARDS */
-    .cards{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-      gap:25px;
-    }
-
-    .card{
-      background:#111;
-      border-radius:16px;
-      padding:28px;
-      text-align:center;
-      border:1px solid #222;
-    }
-
-    .card h3{
-      color:var(--amarillo);
-      margin-bottom:10px;
-    }
-
-    /* CONDUCTOR */
-    .conductor{
-      background:
-        linear-gradient(rgba(11,77,184,.95),rgba(11,77,184,.95)),
-        url("ClienteConductor.png") center/cover no-repeat;
-    }
-
-    footer{
-      background:#000;
-      padding:30px;
-      text-align:center;
-      font-size:14px;
-      color:#aaa;
-    }
-
-    @media(max-width:600px){
-      .hero h1{font-size:30px}
-      h2{font-size:26px}
-    }
-    #promo-semanal{
-  background: linear-gradient(135deg,#0a1d3a,#003366,#0f3d5c);
-  padding:50px 15px;
+body{
+  background:#000;
   color:#fff;
-  animation: fadeIn 1.5s ease;
 }
 
-.promo-container{
-  max-width:1100px;
-  margin:auto;
-  display:flex;
-  flex-wrap:wrap;
-  gap:20px;
-  align-items:center;
-  justify-content:center;
+/* HERO */
+.hero{
+  background:
+  linear-gradient(rgba(11,77,184,.85),rgba(0,0,0,.9)),
+  url("img/fondo-trinidad.jpg") center/cover no-repeat;
+  text-align:center;
+  padding:90px 20px;
 }
 
-.promo-text{
-  flex:1;
-  min-width:280px;
+.hero img{
+  width:130px;
+  margin-bottom:20px;
 }
 
-.promo-text h2{
-  font-size:28px;
-  color:#FFD700;
-  animation: glow 2s infinite alternate;
+.hero h1{
+  font-size:36px;
+  color:var(--amarillo);
 }
 
-.fecha{
-  font-size:16px;
-  margin:10px 0;
+.hero p{
+  max-width:600px;
+  margin:10px auto 25px;
+  font-size:18px;
 }
 
-.desc{
-  font-size:15px;
-  opacity:.9;
-}
-
-.promo-buttons{
-  margin-top:20px;
-  display:flex;
-  gap:10px;
-}
-
+/* BOTONES */
 .btn{
-  padding:12px 20px;
+  display:inline-block;
+  padding:14px 28px;
   border-radius:30px;
-  font-weight:bold;
   text-decoration:none;
+  font-weight:bold;
+  margin:6px;
   transition:.3s;
 }
 
-.btn.pasajero{
-  background:#00c853;
-  color:#fff;
-}
-
-.btn.conductor{
-  background:#ff9800;
+.btn-yellow{
+  background:var(--amarillo);
   color:#000;
 }
 
-.btn:hover{
-  transform:scale(1.05);
+.btn-blue{
+  border:2px solid var(--amarillo);
+  color:var(--amarillo);
 }
 
-.qr-mini{
-  margin-top:20px;
-  width:90px;
+.btn:hover{transform:scale(1.05);}
+
+/* PROMO SEMANAL */
+.promo{
+  background:
+  linear-gradient(135deg,#001d4d,#000);
+  padding:70px 20px;
   text-align:center;
+  position:relative;
+  overflow:hidden;
 }
 
-.qr-mini img{
-  width:100%;
-  border-radius:8px;
-  background:#fff;
-  padding:5px;
+.promo h2{
+  color:var(--amarillo);
+  font-size:32px;
+  margin-bottom:10px;
 }
 
-.promo-img{
-  flex:1;
-  min-width:260px;
-  text-align:center;
-}
-
-.promo-img img{
-  max-width:100%;
+.promo span{
+  background:var(--amarillo);
+  color:#000;
+  padding:6px 14px;
   border-radius:20px;
-  animation: float 4s ease-in-out infinite;
+  font-weight:bold;
+  font-size:14px;
 }
 
-/* WhatsApp flotante */
-.wa-float{
+.promo img{
+  width:90%;
+  max-width:380px;
+  margin:25px auto;
+  border-radius:18px;
+  box-shadow:0 0 25px rgba(245,196,0,.5);
+  animation:pulse 2.5s infinite;
+}
+
+@keyframes pulse{
+  0%{transform:scale(1);}
+  50%{transform:scale(1.03);}
+  100%{transform:scale(1);}
+}
+
+/* BOTON TUTORIALES */
+.tutorial-btn{
+  display:block;
+  margin:40px auto;
+  width:80%;
+  max-width:300px;
+  background:linear-gradient(45deg,var(--amarillo),#ffd700);
+  color:#000;
+  padding:15px;
+  border-radius:30px;
+  text-align:center;
+  font-weight:bold;
+  text-decoration:none;
+  box-shadow:0 5px 15px rgba(0,0,0,.5);
+}
+
+/* WHATSAPP FLOTANTE */
+.whatsapp{
   position:fixed;
   bottom:20px;
   right:20px;
-  background:#25D366;
-  color:white;
-  font-size:26px;
-  width:55px;
-  height:55px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
+  background:#25d366;
+  width:60px;
+  height:60px;
   border-radius:50%;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  font-size:30px;
+  color:#fff;
   text-decoration:none;
-  box-shadow:0 0 15px rgba(0,0,0,.4);
-  animation:pulse 1.5s infinite;
+  box-shadow:0 0 15px rgba(0,0,0,.6);
+  animation:float 1.5s infinite;
   z-index:999;
 }
 
-/* Animaciones */
-@keyframes pulse{
+@keyframes float{
   0%{transform:scale(1);}
   50%{transform:scale(1.1);}
   100%{transform:scale(1);}
 }
 
-@keyframes float{
-  0%{transform:translateY(0);}
-  50%{transform:translateY(-10px);}
-  100%{transform:translateY(0);}
+footer{
+  background:#000;
+  text-align:center;
+  padding:20px;
+  font-size:13px;
+  color:#aaa;
 }
-
-@keyframes glow{
-  from{text-shadow:0 0 5px gold;}
-  to{text-shadow:0 0 15px gold;}
-}
-
-@keyframes fadeIn{
-  from{opacity:0;}
-  to{opacity:1;}
-}
-
-  </style>
+</style>
 </head>
 
 <body>
 
-<!-- ================= HERO ================= -->
-<div class="hero">
-  <img src="logo.jpg" alt="Mi Taxi Logo">
-
+<!-- HERO -->
+<section class="hero">
+  <img src="img/logo.png" alt="Mi Taxi">
   <h1>Mototaxi · Taxi · Motocar</h1>
-  <p>La nueva App de transporte en Trinidad.  
-     Pide tu viaje o gana dinero con tu vehículo.</p>
+  <p>La nueva app de transporte en Trinidad, Beni.  
+  Viaja seguro o gana dinero con tu vehículo.</p>
 
-  <div id="contador">
-    <div class="time"><div id="d">00</div><span>Días</span></div>
-    <div class="time"><div id="h">00</div><span>Horas</span></div>
-    <div class="time"><div id="m">00</div><span>Min</span></div>
-    <div class="time"><div id="s">00</div><span>Seg</span></div>
-  </div>
+  <a class="btn btn-yellow" href="https://play.google.com/store/apps/details?id=com.blueapp.usuario" target="_blank">
+    Soy Pasajero
+  </a>
 
-<!-- SECCIÓN PROMOCIÓN DE LA SEMANA -->
-<section id="promo-semanal">
-  <div class="promo-container">
-    <div class="promo-text">
-      <h2>🔥 Promoción de la Semana</h2>
-      <p class="fecha">Válido del <b>10 al 17 de Enero</b></p>
-      <p class="desc">
-        Gana más con Mi Taxi esta semana. Cumple tus carreras y recibe bonos adicionales.
-      </p>
-
-     <!-- <div class="promo-buttons">
-        <a href="https://wa.me/59168972863?text=Hola%2C%20quiero%20pedir%20un%20taxi%20con%20la%20app%20Mi%20Taxi%20🚖"
-           class="btn pasajero" target="_blank">
-           Soy Pasajero
-        </a>
-
-        <a href="https://wa.me/59168972863?text=Hola%2C%20quiero%20trabajar%20como%20conductor%20en%20Mi%20Taxi%20🛵🚕"
-           class="btn conductor" target="_blank">
-           Soy Conductor
-        </a>
-      </div> --->
-
-      <div class="qr-mini">
-        <img src="qr.jpeg" alt="QR descarga Mi Taxi">
-        <small>Descarga rápida</small>
-      </div>
-    </div>
-
-    <div class="promo-img">
-      <img src="promosemanal.jpeg" alt="Promoción Mi Taxi">
-    </div>
-  </div>
+  <a class="btn btn-blue" href="https://play.google.com/store/apps/details?id=com.blueapp.conductor" target="_blank">
+    Soy Conductor
+  </a>
 </section>
 
-<!-- BOTÓN WHATSAPP FLOTANTE -->
-<a href="https://wa.me/59168972863"
-   class="wa-float" target="_blank">
-  💬
+<!-- PROMOCIÓN SEMANAL -->
+<section class="promo">
+  <span>PROMOCIÓN ACTIVA</span>
+  <h2>Del 10 al 17 de Enero</h2>
+  <p>Semana especial de lanzamiento Mi Taxi en Trinidad</p>
+
+  <img src="img/promosemanal.jpeg" alt="Promo semanal Mi Taxi">
+
+  <a class="btn btn-yellow" href="https://play.google.com/store/apps/details?id=com.blueapp.usuario" target="_blank">
+    Descargar App Pasajero
+  </a>
+
+  <a class="btn btn-blue" href="https://play.google.com/store/apps/details?id=com.blueapp.conductor" target="_blank">
+    Descargar App Conductor
+  </a>
+</section>
+
+<!-- BOTÓN A TUTORIALES -->
+<a href="tutoriales.html" class="tutorial-btn">
+  📚 Ver Video Tutoriales
 </a>
 
-  
-  <a class="btn btn-yellow" target="_blank"
-     href="https://play.google.com/store/apps/details?id=com.blueapp.usuario">
-     Soy Pasajero – Descargar App
-  </a>
-
-  <a class="btn btn-blue" target="_blank"
-     href="https://play.google.com/store/apps/details?id=com.blueapp.conductor">
-     Soy Conductor – Ganar Dinero
-  </a>
-</div>
-
-<!-- ================= PASAJEROS ================= -->
-<section>
-  <div class="container">
-    <h2>Viaja fácil con Mi Taxi</h2>
-    <p class="sub">Solicita tu transporte desde el celular. Rápido, seguro y sin complicaciones.</p>
-
-    <div class="cards">
-      <div class="card"><h3>📱 Rápido</h3><p>Pide tu viaje en segundos</p></div>
-      <div class="card"><h3>📍 Cercano</h3><p>Conductores disponibles cerca</p></div>
-      <div class="card"><h3>🔐 Seguro</h3><p>Conductores verificados</p></div>
-    </div>
-  </div>
-</section>
-
-<!-- ================= CONDUCTORES ================= -->
-<section class="conductor">
-  <div class="container">
-    <h2>¿Tienes moto, taxi o motocar?</h2>
-    <p class="sub">Genera ingresos diarios usando tu propio vehículo.</p>
-
-    <div class="cards">
-      <div class="card"><h3>💰 Más ingresos</h3><p>Viajes todos los días</p></div>
-      <div class="card"><h3>🕒 Sin horarios</h3><p>Tú decides cuándo trabajar</p></div>
-      <div class="card"><h3>📍 Menos gasto</h3><p>Viajes cerca de tu zona</p></div>
-    </div>
-  </div>
-</section>
+<!-- WHATSAPP -->
+<a class="whatsapp" href="https://wa.me/59168972863" target="_blank">🟢</a>
 
 <footer>
-  © 2026 Mi Taxi Bolivia · JEDIS Web Solutions
+© 2026 Mi Taxi Bolivia · JEDIS Web Solutions
 </footer>
-
-<!-- ================= CONTADOR JS ================= -->
-<script>
-const lanzamiento = new Date("February 2, 2026 19:00:00").getTime();
-setInterval(()=>{
-  const now = new Date().getTime();
-  const t = lanzamiento - now;
-  if(t <= 0) return;
-  d.innerHTML=Math.floor(t/(1000*60*60*24));
-  h.innerHTML=Math.floor((t%(1000*60*60*24))/(1000*60*60));
-  m.innerHTML=Math.floor((t%(1000*60*60))/(1000*60));
-  s.innerHTML=Math.floor((t%(1000*60))/1000);
-},1000);
-</script>
 
 </body>
 </html>
+
+
 
 
 
